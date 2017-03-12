@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "698FE557F6A7C03C83F42139"
-               BuildableName = "libPods-SQPersist-FMDB.a"
-               BlueprintName = "Pods-SQPersist-FMDB"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "6B292B9C1A04C4A500DBB179"
+               BuildableName = "libSQPersist.a"
+               BlueprintName = "SQPersist"
+               ReferencedContainer = "container:SQPersist.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "698FE557F6A7C03C83F42139"
-            BuildableName = "libPods-SQPersist-FMDB.a"
-            BlueprintName = "Pods-SQPersist-FMDB"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "6B292B9C1A04C4A500DBB179"
+            BuildableName = "libSQPersist.a"
+            BlueprintName = "SQPersist"
+            ReferencedContainer = "container:SQPersist.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "698FE557F6A7C03C83F42139"
-            BuildableName = "libPods-SQPersist-FMDB.a"
-            BlueprintName = "Pods-SQPersist-FMDB"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "6B292B9C1A04C4A500DBB179"
+            BuildableName = "libSQPersist.a"
+            BlueprintName = "SQPersist"
+            ReferencedContainer = "container:SQPersist.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

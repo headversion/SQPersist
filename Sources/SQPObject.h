@@ -11,11 +11,10 @@
 #include <objc/objc.h>
 #include <objc/NSObjCRuntime.h>
 #import <UIKit/UIKit.h>
+#import <FMDB/FMDB.h>
 
 #import "SQPDatabase.h"
 #import "SQPProperty.h"
-#import "FMDatabase.h"
-#import "FMDatabaseAdditions.h"
 
 /**
  *  Protocole of SQPObject

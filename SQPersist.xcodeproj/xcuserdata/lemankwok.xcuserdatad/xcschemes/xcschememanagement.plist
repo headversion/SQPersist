@@ -4,25 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-SQPersist-FMDB.xcscheme</key>
+		<key>SQPersist.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
-		<key>Pods-SQPersist.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>698FE557F6A7C03C83F42139</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ED40EBC8E34878BA1CF575E6</key>
+		<key>6B292B9C1A04C4A500DBB179</key>
 		<dict>
 			<key>primary</key>
 			<true/>

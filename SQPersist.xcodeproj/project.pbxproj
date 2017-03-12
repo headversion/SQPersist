@@ -10,7 +10,7 @@
 		6BA86B081A04E6C9003E7006 /* SQPDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA86B021A04E6C9003E7006 /* SQPDatabase.m */; };
 		6BA86B091A04E6C9003E7006 /* SQPObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA86B051A04E6C9003E7006 /* SQPObject.m */; };
 		6BA86B0A1A04E6C9003E7006 /* SQPProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA86B071A04E6C9003E7006 /* SQPProperty.m */; };
-		9E8775462AD63BAF26AE6FCA /* libPods-SQPersist.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F37D85347D907560EBF390C2 /* libPods-SQPersist.a */; };
+		EC937EFD242A5CAB2244F94D /* Pods_SQPersist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F03044833A116FC9C56592 /* Pods_SQPersist.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		26931D595C159CB3E12DCF4C /* Pods-SQPersist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQPersist.release.xcconfig"; path = "Pods/Target Support Files/Pods-SQPersist/Pods-SQPersist.release.xcconfig"; sourceTree = "<group>"; };
+		23F03044833A116FC9C56592 /* Pods_SQPersist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SQPersist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B292B9D1A04C4A500DBB179 /* libSQPersist.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSQPersist.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA86B011A04E6C9003E7006 /* SQPDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQPDatabase.h; sourceTree = "<group>"; };
 		6BA86B021A04E6C9003E7006 /* SQPDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQPDatabase.m; sourceTree = "<group>"; };
@@ -38,8 +38,8 @@
 		6BBB47B71A04CFC200989381 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6BBB47B81A04CFC200989381 /* SQPersist.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SQPersist.podspec; sourceTree = "<group>"; };
 		6BBB47BB1A04D37A00989381 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		899C7AA2A57C6D190139CB8A /* Pods-SQPersist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQPersist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SQPersist/Pods-SQPersist.debug.xcconfig"; sourceTree = "<group>"; };
-		F37D85347D907560EBF390C2 /* libPods-SQPersist.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SQPersist.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A759909B58AD76FDED5B7070 /* Pods-SQPersist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQPersist.release.xcconfig"; path = "Pods/Target Support Files/Pods-SQPersist/Pods-SQPersist.release.xcconfig"; sourceTree = "<group>"; };
+		CC279874464C9A8F7F06A18B /* Pods-SQPersist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQPersist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SQPersist/Pods-SQPersist.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,30 +47,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E8775462AD63BAF26AE6FCA /* libPods-SQPersist.a in Frameworks */,
+				EC937EFD242A5CAB2244F94D /* Pods_SQPersist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1BB6CA2D57C4E7ED30F1DC61 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				899C7AA2A57C6D190139CB8A /* Pods-SQPersist.debug.xcconfig */,
-				26931D595C159CB3E12DCF4C /* Pods-SQPersist.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		6B292B941A04C4A500DBB179 = {
 			isa = PBXGroup;
 			children = (
 				6BBB47B61A04CFB100989381 /* Specs */,
 				6BA86B001A04E6C9003E7006 /* Sources */,
 				6B292B9E1A04C4A500DBB179 /* Products */,
-				1BB6CA2D57C4E7ED30F1DC61 /* Pods */,
-				7E2F08D391BE0A0E88095DCD /* Frameworks */,
+				7904E7FED75C6A11FEEA4FEF /* Pods */,
+				91272A5620892F00F8A51140 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,10 +97,19 @@
 			name = Specs;
 			sourceTree = "<group>";
 		};
-		7E2F08D391BE0A0E88095DCD /* Frameworks */ = {
+		7904E7FED75C6A11FEEA4FEF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F37D85347D907560EBF390C2 /* libPods-SQPersist.a */,
+				CC279874464C9A8F7F06A18B /* Pods-SQPersist.debug.xcconfig */,
+				A759909B58AD76FDED5B7070 /* Pods-SQPersist.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		91272A5620892F00F8A51140 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23F03044833A116FC9C56592 /* Pods_SQPersist.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,11 +121,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6B292BB11A04C4A500DBB179 /* Build configuration list for PBXNativeTarget "SQPersist" */;
 			buildPhases = (
-				0D8D5253CBE8C0CD0F74858E /* Check Pods Manifest.lock */,
+				691AC59ADE136BDBEE3B010A /* [CP] Check Pods Manifest.lock */,
 				6B292B991A04C4A500DBB179 /* Sources */,
 				6B292B9A1A04C4A500DBB179 /* Frameworks */,
 				6B292B9B1A04C4A500DBB179 /* CopyFiles */,
-				BF3547EFDE8E8EE001A60167 /* Copy Pods Resources */,
+				7F9E9832B37A3C71482DD8AC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,29 +168,29 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0D8D5253CBE8C0CD0F74858E /* Check Pods Manifest.lock */ = {
+		691AC59ADE136BDBEE3B010A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		BF3547EFDE8E8EE001A60167 /* Copy Pods Resources */ = {
+		7F9E9832B37A3C71482DD8AC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,7 +291,7 @@
 		};
 		6B292BB21A04C4A500DBB179 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 899C7AA2A57C6D190139CB8A /* Pods-SQPersist.debug.xcconfig */;
+			baseConfigurationReference = CC279874464C9A8F7F06A18B /* Pods-SQPersist.debug.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -302,7 +302,7 @@
 		};
 		6B292BB31A04C4A500DBB179 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26931D595C159CB3E12DCF4C /* Pods-SQPersist.release.xcconfig */;
+			baseConfigurationReference = A759909B58AD76FDED5B7070 /* Pods-SQPersist.release.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";

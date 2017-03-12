@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FMDatabase.h"
-#import "FMDatabaseAdditions.h"
+#import <FMDB/FMDB.h>
 
 /**
  *  Database manager.
