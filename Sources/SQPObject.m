@@ -755,6 +755,8 @@
         [object completeWithResultSet:s];
         [items addObject:object];
     }
+    // ResultSet need to be closed when finish
+    [s close];
     
     return items;
 }
@@ -858,6 +860,9 @@
         break;
     }
     
+    // ResultSet need to be closed when finish
+    [s close];
+    
     return object;
 }
 
@@ -890,6 +895,8 @@
         numberEntities = [s longLongIntForColumn:@"total_entities"];
         break;
     }
+    // ResultSet need to be closed when finish
+    [s close];
     
     return numberEntities;
 }
@@ -923,6 +930,8 @@
         numberEntities = [s longLongIntForColumn:@"total_entities"];
         break;
     }
+    // ResultSet need to be closed when finish
+    [s close];
     
     return numberEntities;
 }

@@ -21,6 +21,11 @@
     FMDatabase *_database;
     
     /**
+     *  FMDB Database connector.
+     */
+    FMDatabaseQueue *_databaseQueue;
+    
+    /**
      *  Database name.
      */
     NSString *_dbName;
@@ -58,6 +63,11 @@
 @property (nonatomic) BOOL logPropertyScan;
 
 /**
+ *  The database queue connector
+ */
+@property (nonatomic, strong, readonly) FMDatabaseQueue *databaseQueue;
+
+/**
  *  Get the main instance of the database manager.
  *
  *  @return Instance.
@@ -93,6 +103,13 @@
  *  @return Database connector.
  */
 - (FMDatabase*)database;
+
+/**
+ *  Database queue connector.
+ *
+ *  @return Database queue connector.
+ */
+- (FMDatabaseQueue*)databaseQueue;
 
 /**
  *  Check if the database file exists.
@@ -166,4 +183,35 @@
  */
 - (BOOL)rollbackTransaction;
 
+
+/////// Shortcut
+
+
+
 @end
+
+@interface SQPDatabase(FBDatabaseQueueCategory)
+
+/** Synchronously perform database operations on queue.
+ 
+ @param block The code to be run on the queue of `FMDatabaseQueue`
+ */
+
+- (void)inDatabase:(__attribute__((noescape)) void (^)(FMDatabase *db))block;
+
+/** Synchronously perform database operations on queue, using transactions.
+ 
+ @param block The code to be run on the queue of `FMDatabaseQueue`
+ */
+
+- (void)inTransaction:(__attribute__((noescape)) void (^)(FMDatabase *db, BOOL *rollback))block;
+
+/** Synchronously perform database operations on queue, using deferred transactions.
+ 
+ @param block The code to be run on the queue of `FMDatabaseQueue`
+ */
+
+- (void)inDeferredTransaction:(__attribute__((noescape)) void (^)(FMDatabase *db, BOOL *rollback))block;
+
+@end
+

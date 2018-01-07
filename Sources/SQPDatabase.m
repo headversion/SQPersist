@@ -11,7 +11,7 @@
 #define kSQPDefaultDdName @"SQPersist.db"
 
 @interface SQPDatabase ()
-- (FMDatabase*)createDatabase;
+- (FMDatabaseQueue*)createDatabaseQueue;
 @end
 
 /**
@@ -44,7 +44,7 @@
 - (void)setupDatabaseWithName:(NSString*)dbName {
  
     _dbName = dbName;
-    _database = [self createDatabase];
+    _databaseQueue = [self createDatabaseQueue];
 }
 
 /**
@@ -54,7 +54,7 @@
  */
 - (NSString*)getDdName {
     
-    if (_dbName == nil) [self createDatabase];
+    if (_dbName == nil) [self createDatabaseQueue];
     return _dbName;
 }
 
@@ -64,7 +64,7 @@
  *  @return Path of the database.
  */
 - (NSString*)getDdPath {
-     if (_dbPath == nil) [self createDatabase];
+     if (_dbPath == nil) [self createDatabaseQueue];
     return _dbPath;
 }
 
@@ -94,15 +94,31 @@
 }
 
 /**
+ *  Create the local SQLite database file (private method).
+ *
+ *  @return Database connector.
+ */
+- (FMDatabaseQueue*)createDatabaseQueue {
+    
+    if (_dbName == nil) _dbName = kSQPDefaultDdName;
+    
+    NSString *documentdir = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+    _dbPath = [documentdir stringByAppendingPathComponent:_dbName];
+    
+    //NSLog(@"%@", _dbPath);
+    
+    _databaseQueue = [FMDatabaseQueue databaseQueueWithPath:_dbPath];
+    
+    return _databaseQueue;
+}
+
+
+/**
  *  Database connector.
  *
  *  @return Database connector.
  */
 - (FMDatabase*)database {
-    
-    if (_database == nil) {
-        _database = [self createDatabase];
-    }
     
     return _database;
 }
@@ -131,8 +147,8 @@
     
     if (_dbPath != nil) {
         
-        if (_database != nil) {
-            [_database close];
+        if (_databaseQueue != nil) {
+            [_databaseQueue close];
         }
         
         NSError *error = nil;
@@ -140,7 +156,7 @@
         [[NSFileManager defaultManager] removeItemAtPath:_dbPath error:&error];
         
         if (error == nil) {
-            _database = nil;
+            _databaseQueue = nil;
             return YES;
         } else {
             NSLog(@"%@", [error localizedDescription]);
@@ -230,11 +246,7 @@
  */
 - (BOOL)beginTransaction {
 
-    FMDatabase *db = [[SQPDatabase sharedInstance] database];
-    
-    BOOL result = [db beginTransaction];
-    
-    return result;
+    return NO;
 }
 
 /**
@@ -244,11 +256,7 @@
  */
 - (BOOL)commitTransaction {
     
-    FMDatabase *db = [[SQPDatabase sharedInstance] database];
-
-    BOOL result = [db commit];
-    
-    return result;
+    return NO;
 }
 
 /**
@@ -258,11 +266,67 @@
  */
 - (BOOL)rollbackTransaction {
     
-    FMDatabase *db = [[SQPDatabase sharedInstance] database];
-   
-    BOOL result = [db rollback];
-    
-    return result;
+    return NO;
+}
+
+@end
+@implementation SQPDatabase(FBDatabaseQueueCategory)
+
+/** Synchronously perform database operations on queue.
+ 
+ @param block The code to be run on the queue of `FMDatabaseQueue`
+ */
+
+- (void)inDatabase:(__attribute__((noescape)) void (^)(FMDatabase *db))block
+{
+    if(_databaseQueue == nil){
+        [self createDatabaseQueue];
+    }
+    [self.databaseQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        _database = db;
+        
+        block(db);
+        
+        _database = nil;
+    }];
+}
+
+/** Synchronously perform database operations on queue, using transactions.
+ 
+ @param block The code to be run on the queue of `FMDatabaseQueue`
+ */
+
+- (void)inTransaction:(__attribute__((noescape)) void (^)(FMDatabase *db, BOOL *rollback))block
+{
+    if(_databaseQueue == nil){
+        [self createDatabaseQueue];
+    }
+    [self.databaseQueue inTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
+        _database = db;
+        
+        block(db, rollback);
+        
+        _database = nil;
+    }];
+}
+
+/** Synchronously perform database operations on queue, using deferred transactions.
+ 
+ @param block The code to be run on the queue of `FMDatabaseQueue`
+ */
+
+- (void)inDeferredTransaction:(__attribute__((noescape)) void (^)(FMDatabase *db, BOOL *rollback))block
+{
+    if(_databaseQueue == nil){
+        [self createDatabaseQueue];
+    }
+    [self.databaseQueue inDeferredTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
+        _database = db;
+        
+        block(db, rollback);
+        
+        _database = nil;
+    }];
 }
 
 @end
